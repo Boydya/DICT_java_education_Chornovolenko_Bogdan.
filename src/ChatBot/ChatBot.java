@@ -16,8 +16,22 @@ public class ChatBot {
         System.out.printf("Your age is %d  that's a good time to start programming!\n", age);
         System.out.println("Now i will prove to you that i can count to any number you want");
         int number = user_input.nextInt();
-        for(int num = 0; num < number + 1; num++) {
+        for (int num = 0; num < number + 1; num++) {
             System.out.printf("%d !\n", num);
         }
+        System.out.println("Why do we use methods?\n1.To repeat a statement multiply times\n2.To decompose a" +
+                "program into several small subroutines\n3.To determine the execution time for a program\n" +
+                "4.To interrupt the execution of a program");
+        while (true) {
+            int answer = user_input.nextInt();
+            if (answer == 2) {
+                System.out.println("Great, you right");
+                break;
+            } else {
+                System.out.println("Please, try again");
+            }
+        }
+        user_input.close();
+        System.out.println("Goodbye, have a nice day!");
     }
 }
