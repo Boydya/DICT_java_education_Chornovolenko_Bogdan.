@@ -11,10 +11,16 @@ public class TicTacToe {
 
     public static void main(String[] args) {
         TicTacToe myGame = new TicTacToe();
-        myGame.setField();
         myGame.showField();
-        myGame.makeMove();
-        myGame.showField();
+        while (true) {
+            myGame.makeMove();
+            myGame.showField();
+            String gameStatus = myGame.checkGameStatus();
+            if (!gameStatus.equals("Game unfinished")) {
+                System.out.println(gameStatus);
+                break;
+            }
+        }
     }
 
     public int countMatches(String target) {
@@ -76,6 +82,11 @@ public class TicTacToe {
                 line3 = replaceStringChar(line3, moveNow, Character.getNumericValue(coordinates.charAt(2)) - 1);
             }
         }
+        if (moveNow == 'X'){
+            moveNow = 'O';
+        } else {
+            moveNow = 'X';
+        }
     }
 
     public String replaceStringChar(String string, char character, int index) {
@@ -119,13 +130,13 @@ public class TicTacToe {
         }
     }
 
-    public void setField() {
-        System.out.println("Enter cells:");
-        String newField = userInput.nextLine();
-        line1 = newField.substring(0,3);
-        line2 = newField.substring(3, 6);
-        line3 = newField.substring(6, 9);
-    }
+//    public void setField() {
+//        System.out.println("Enter cells:");
+//        String newField = userInput.nextLine();
+//        line1 = newField.substring(0,3);
+//        line2 = newField.substring(3, 6);
+//        line3 = newField.substring(6, 9);
+//    }
 
     public void showField() {
         System.out.printf("---------\n" +
